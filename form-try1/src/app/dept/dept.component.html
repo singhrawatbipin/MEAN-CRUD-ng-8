@@ -1,0 +1,31 @@
+      
+<div class="container">
+  <h2>Dpartment Form</h2>
+  <form  (ngSubmit)="onSubmit(deptF)" #deptF="ngForm" >
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="name" class="form-control" id="name" placeholder="Enter Name">
+    </div>
+    <div class="form-group" >
+      <label for="Roles">Roles</label>
+        <div *ngFor="let category of categories;">
+          <input type="checkbox" 
+          value="{{category.id}}"
+          [ngModelOptions]="{standalone: true}"
+          [(ngModel)]="category.selected"/> {{category.title}}    
+        </div>
+    </div>
+            
+    <select class="form-control" type="text" required  (change)="onChange($event)">>
+      <option  disabled> Select Your Status</option>
+      <option value="{{ state.id }}"
+      *ngFor ="let state of status">
+      {{state.name}}
+      </option>
+    </select>  
+
+    <div class="text-center">      
+      <button type="submit" class="btn btn-primary" (click) = "getSelectedCategories()" >Submit</button>
+    </div>
+  </form>
+</div>

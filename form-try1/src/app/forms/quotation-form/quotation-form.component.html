@@ -1,0 +1,193 @@
+<section class="bg-color">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>Quotation Form</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="rnd-corner">
+      <div class="container">
+        <form (ngSubmit)="onSubmit(quotForm);" #quotForm="ngForm">
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="businessName">Business Name</label>
+                <input type="text" class="form-control"  placeholder="Enter Business Name" id="businessName"
+                name="businessName"
+                [(ngModel)]="service.quotFormData.businessName"
+                #businessName="ngModel"
+                required>
+              </div>
+              <span  *ngIf="businessName.invalid && (businessName.dirty || businessName.touched)">
+                  Business Name is Required...
+              </span>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="natureOfBusiness">Nature of Business</label>
+                <input type="text" class="form-control" placeholder="Enter Nature of Business" id="natureOfBusiness"
+                name="natureOfBusiness"
+                [(ngModel)]="service.quotFormData.natureOfBusiness"
+                #natureOfBusiness="ngModel"
+                required >
+              </div>
+              <span  *ngIf="natureOfBusiness.invalid && (natureOfBusiness.dirty || natureOfBusiness.touched)">
+                  Nature of Business is Required...
+              </span>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="contactPerson">Contact Person</label>
+                <input type="text" class="form-control" placeholder="Enter Contact Person"
+                name="contactPerson"
+                [(ngModel)]="service.quotFormData.contactPerson"
+                #contactPerson="ngModel"
+                required>
+              </div>
+              <span  *ngIf="contactPerson.invalid && (contactPerson.dirty || contactPerson.touched)">
+                  Contact Person is Required...
+              </span>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" placeholder="Enter Email"
+                name="email"
+                [(ngModel)]="service.quotFormData.email"
+                #email="ngModel"
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                required>
+              </div>
+              <span *ngIf="email?.errors?.required && (email.dirty || email.touched)">
+                  Email is Required...
+              </span>
+              <span *ngIf="email.errors && email.errors.pattern">
+                Please Type a Valid Email Address...
+              </span>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="businessAddress">Business Address</label>
+                <input type="text" class="form-control" placeholder="Enter Business Address"
+                name="businessAddress"
+                [(ngModel)]="service.quotFormData.businessAddress"
+                #businessAddress="ngModel"
+                required>
+              </div>
+              <span  *ngIf="businessAddress.invalid && (businessAddress.dirty || businessAddress.touched)">
+                  Business Address is Required...
+              </span>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="website">Website</label>
+                <input type="text" class="form-control" placeholder="Enter Website"
+                name="website"
+                [(ngModel)]="service.quotFormData.website"
+                #website="ngModel"
+                required>
+              </div>
+              <span  *ngIf="website.invalid && (website.dirty || website.touched)">
+                  Website is Required...
+              </span>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="lNumber">Landline Number</label>
+                <input type="text" class="form-control" placeholder="Enter Lanline Number"
+                name="lNumber"
+                [(ngModel)]="service.quotFormData.lNumber"
+                #lNumber="ngModel"
+                pattern="^\d{10}$"
+                required>
+              </div>
+              <span *ngIf="lNumber?.errors?.required && (lNumber.dirty || lNumber.touched)">
+                  Landline Number  is Required...
+              </span>
+              <span *ngIf="lNumber.errors && lNumber.errors.pattern">
+                  Please Type a Valid Landline Number...
+              </span>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 15px">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="reqDescription">Requirement Description</label>
+                <textarea class="form-control" placeholder="Enter Requirement Description"
+                name="reqDescription"
+                [(ngModel)]="service.quotFormData.reqDescription"
+                #reqDescription="ngModel"
+                required></textarea>
+              </div>
+              <span *ngIf="reqDescription.invalid && (reqDescription.dirty || reqDescription.touched)">
+                Requirement Description is Required...
+              </span>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="hidden"
+                name="_id"
+                [(ngModel)]="service.quotFormData._id"
+                #_id="ngModel">
+              </div>
+            </div>
+          </div>
+
+          <div class="g-recaptcha" style="margin-top: 50px"  data-sitekey="6LeWu7EUAAAAAN2LfP8JHO88kqr9xUus57Axdrs0"></div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="table">
+    <div class="rnd-corner">
+      <div class="container">
+        <table class="table table-dark table-hover table-striped custab text-center table-responsive">
+          <thead>
+            <tr>
+              <th>Buinsess Name</th>
+              <th>Nature of Business</th>
+              <th>Conatct Person</th>
+              <th>Email</th>
+              <th>Business Address</th>
+              <th>Website</th>
+              <th>Landline Number</th>
+              <th>Requirement Description</th>
+              <th>Update/Delete</th>
+            </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let quotation of service.quotations'>
+                  <td>{{quotation.businessName}}</td>
+                  <td>{{quotation.natureOfBusiness}}</td>
+                  <td>{{quotation.contactPerson}}</td>
+                  <td>{{quotation.email}}</td>
+                  <td>{{quotation.businessAddress}}</td>
+                  <td>{{quotation.website}}</td>
+                  <td>{{quotation.lNumber}}</td>
+                  <td>{{quotation.reqDescription}}</td>
+                  <td>
+                    <i class="fa fa-edit" (click)='onEdit(quotation);' aria-hidden="true"></i>
+                    &nbsp;&nbsp;
+                    <i class="fa fa-trash" (click)='onDelete(quotation._id, quotForm);' aria-hidden="true"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </section>
+</section>
