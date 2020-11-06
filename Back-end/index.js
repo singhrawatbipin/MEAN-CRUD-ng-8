@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+let variableNotUsable = "Do not use this variable.";
+
 const { mongoose } = require('./db.js');
 var registrationController = require('./controllers/registrationController.js');
 var quotationController = require('./controllers/quotationController')
@@ -21,5 +23,6 @@ app.listen(3000, () => console.log("Express server started at port number : 3000
 app.use('/registrations', registrationController);
 app.use('/quotations', quotationController);
 app.use(cors());
+
 
 
