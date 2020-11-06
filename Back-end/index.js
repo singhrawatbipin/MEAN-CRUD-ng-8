@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-let variableNotUsable = "Do not use this variable.";
+let varNotUse = "the quick brown fox";
 
 const { mongoose } = require('./db.js');
 var registrationController = require('./controllers/registrationController.js');
